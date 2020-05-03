@@ -1,11 +1,14 @@
-import app from './app';
+const app = require('./app')
+const config = require('../src/config/config.json');
 
 const startApp = async () => {
-  const header = document.querySelector('[data-app-name]');
-  if (!header) return;
-
-  const programName = await app();
-  header.textContent = programName;
+  app.get('/', (req, res) => {
+    res.send('Hello World!');
+  });
+   
+  app.listen(config.app.port, () =>
+    console.log('Server listening on port 3000!'),
+  );
 };
 
-document.addEventListener('DOMContentLoaded', startApp);
+startApp()
