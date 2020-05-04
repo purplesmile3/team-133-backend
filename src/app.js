@@ -1,3 +1,11 @@
-const app = async () => '#BuildforSDG';
+const express = require('express');
+const bodyParser     =        require("body-parser");
+const db = require('./config/database').db;
+const productRouter = require('../src/routes/product.route')
 
-export default app;
+let app = express();
+app.use(bodyParser.json());
+  
+app.use(productRouter);
+
+module.exports = app
