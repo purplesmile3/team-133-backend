@@ -1,11 +1,13 @@
-import app from './app';
+const express = require('express')
+require('./db/mongoose')
+const userRouter = require('./routers/user')
 
-const startApp = async () => {
-  const header = document.querySelector('[data-app-name]');
-  if (!header) return;
+const app = express()
+const port = process.env.PORT || 3000
 
-  const programName = await app();
-  header.textContent = programName;
-};
+app.use(express.json())
+app.use(userRouter)
 
-document.addEventListener('DOMContentLoaded', startApp);
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
+});
