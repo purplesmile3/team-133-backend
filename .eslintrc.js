@@ -1,4 +1,4 @@
-module.exports = {
+/*module.exports = {
   env: {
     browser: true,
     es6: true,
@@ -18,4 +18,4 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'no-param-reassign': ['error', { props: false }]
   }
-};
+};*/
